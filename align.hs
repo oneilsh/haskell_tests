@@ -62,11 +62,14 @@ global_aln a b
 	                   
 	                   left_aln_a = b_a ++ (aaln left);
 	                   left_aln_b = "-" ++ (baln left);
-	                   
+	                   center_aln_a = b_a ++ (aaln center);
+	                   center_aln_b = b_b ++ (baln center);
+	                   right_aln_a = "-" ++ (aaln right);
+	                   right_aln_b = b_b ++ (baln right);
 	                   
 	                   answer_left = Answer   a   b   left_aln_a   left_aln_b   (score left + score_pair b_a  "-");
-	                   answer_center = Answer   a   b   (b_a ++ (aaln center))   (b_b ++ (baln center))   (score center + score_pair b_a b_b);
-	                   answer_right = Answer   a   b   ("-" ++ (aaln right))   (b_b ++ (baln right))   (score right + score_pair "-" b_b)}
+	                   answer_center = Answer   a   b   center_aln_a  center_aln_b  (score center + score_pair b_a b_b);
+	                   answer_right = Answer   a   b   right_aln_a  right_aln_b   (score right + score_pair "-" b_b)}
 	              in
 	                   max_answer answer_left answer_center answer_right
 
